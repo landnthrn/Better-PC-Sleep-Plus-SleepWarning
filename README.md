@@ -26,24 +26,24 @@ For users that just can't figure out what is keeping your PC awake or would just
 - Under the User Variables (top box), select Path, then Edit
 
 - Select New and paste the path of your ForceSleep folder. It should look like:  
-```C:\\Users\\%USERNAME%\\Documents\\Scripts\\ForceSleep```
+`C:\Users\%USERNAME%\Documents\Scripts\ForceSleep`
 
 - (Optional but foolproof to add the Scripts folder path too):  
-```C:\\Users\\%USERNAME%\\Documents\\Scripts```
+  `C:\Users\%USERNAME%\Documents\Scripts`
 
 Recommended to replace the %USERNAME% parts with your PC username,  
-so say it was Elephant it would be ```C:\\Users\\Elephant\\Documents\\Scripts```
+so say it was Elephant it would be `C:\Users\Elephant\Documents\Scripts`  
 
 - Click OK a few times to close Environment Variables
 
 - Open Command Prompt as Administrator
 
-- Edit the following command before running it. Replace %USERNAME% with your PC username (there are two to replace)
+- Edit the following command before running it. Replace `%USERNAME%` with your PC username *(there are two to replace)*
 
 **THE COMMAND:**  
-```schtasks /create /tn "ForceSleep_Watcher" /tr "powershell.exe -NoProfile -NoLogo -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\\Users\\%USERNAME%\\Documents\\Scripts\\ForceSleep\\forcesleep.ps1"" /sc ONLOGON /ru "%USERNAME%" /it /rl LIMITED```
+```schtasks /create /tn "ForceSleep_Watcher" /tr "powershell.exe -NoProfile -NoLogo -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Users\%USERNAME%\Documents\Scripts\ForceSleep\forcesleep.ps1"" /sc ONLOGON /ru "%USERNAME%" /it /rl LIMITED```
 
-- Once you've created the ForceSleep_Watcher task with that command:
+- Once you've created the ForceSleep_Watcher task with that command
 
 - Open Task Scheduler and find the ForceSleep_Watcher task
 
@@ -58,30 +58,30 @@ so say it was Elephant it would be ```C:\\Users\\Elephant\\Documents\\Scripts```
 - Open the ForceSleep.ps1 file (Right click > Edit)
 
 - At the top, change:
-$ThresholdMinutes = 25
+`$ThresholdMinutes = 25`
 to
-$ThresholdMinutes = 0.5
+`$ThresholdMinutes = 0.5`
 
 - This makes it trigger within about 30 seconds of idle time for testing
 
 - Save changes to the ForceSleep.ps1 file
 
 **Note:** Every time you make a change to these files, you should restart the ForceSleep_Watcher task by using this command:  
-```schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"```
+`schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"`
 
 - Once you've restarted the task, don't touch your mouse or keyboard for 30 seconds. See if the Sleep Warning appears — don’t cancel it so you can confirm it sleeps properly
 
 - After you've verified it works, open ForceSleep.ps1 again and change $ThresholdMinutes = 0.5 to any number of minutes you'd like, then save
 
 - Restart the task again with this command:
-```schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"```
+`schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"`
 
 ---
 
 ## INFO:
 
 You can cancel the sleep from happening by pressing Ctrl + C,  
-or pause it by clicking inside the terminal popup and resume it by pressing any key.
+or pause it by clicking inside the terminal pop-up and resume it by pressing any key.
 
 If you have media/audio playing, it will pause it before sleep to prevent audio tasks from thinking something crashed.
 
