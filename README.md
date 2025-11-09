@@ -11,11 +11,11 @@ For users that just can't figure out what is keeping your PC awake or would just
 ## HOW TO SETUP FORCESLEEP/SLEEPWARNING:  
 \**Use all commands provided in Command Prompt Admin*\*
 
-- Go to your `Documents` folder
+- Go to your **Documents** folder
 
-- Create a folder called `Scripts`
+- Create a folder called **Scripts**
 
-- Create another folder inside the `Scripts` folder called `ForceSleep`
+- Create another folder inside the **Scripts** folder called **ForceSleep**
 
 - Place all the files from this download into there
 
@@ -25,10 +25,10 @@ For users that just can't figure out what is keeping your PC awake or would just
 
 - Under the **User Variables** *(top box)*, select **Path**, then **Edit**
 
-- Select **New** and paste the path of your `ForceSleep` folder. It should look like:  
+- Select **New** and paste the path of your **ForceSleep** folder. It should look like:  
 `C:\Users\%USERNAME%\Documents\Scripts\ForceSleep`
 
-- (Optional but foolproof to add the `Scripts` folder path too):  
+- (Optional but foolproof to add the **Scripts** folder path too):  
   `C:\Users\%USERNAME%\Documents\Scripts`
 
 Recommended to replace the `%USERNAME%` parts with your PC username,  
@@ -61,16 +61,16 @@ so say it was Elephant it would be `C:\Users\Elephant\Documents\Scripts`
 `$ThresholdMinutes = 25`
 to
 `$ThresholdMinutes = 0.5`
-
-- This makes it trigger within about 30 seconds of idle time for testing
+This makes it trigger within about 30 seconds of idle time for testing
 
 - Save changes to the `ForceSleep.ps1` file
 
-**Note:** Every time you make a change to these files, you should restart the ForceSleep_Watcher task by using this command:  
+**Note:**  
+ Every time you make a change to these files, you should restart the **ForceSleep_Watcher** task by using this command:  
 `schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"`
 
 - Once you've restarted the task, don't touch your mouse or keyboard for 30 seconds.
-  See if the Sleep Warning appears don’t cancel it so you can confirm it sleeps properly
+  See if the Sleep Warning appears, don’t cancel it so you can confirm it sleeps properly
 
 - After you've verified it works, open `ForceSleep.ps1` again and change $`ThresholdMinutes = 0.5` to any number of minutes you'd like
 
