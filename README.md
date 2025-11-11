@@ -6,6 +6,18 @@
 This feature will simulate the regular sleeping timer system, while also providing a Sleep Warning display allowing you time to cancel it.  
 Also helpful if your PC just refuses to sleep and you can't figure out the cause of it.
 
+You can toggle the feature on/off with simple commands in any command prompt window:
+
+#### ForceSleep Commands:  
+`forcesleep`        — Display this list of commands  
+`forcesleep on`     — Enable idle sleep  
+`forcesleep off`    — Disable idle sleep  (Helpful for long downloads 
+`forcesleep status` — Check if enabled/disabled  
+
+You can cancel the sleep from happening by pressing `Ctrl + C` during the sleep warning 
+or pause it by clicking inside the terminal pop-up and resume it by pressing any key.
+
+If you have media/audio playing, it will pause all audio before sleep triggers
 
 ---
 
@@ -82,15 +94,6 @@ This makes it trigger within about 30 seconds of idle time for testing
 
 ---
 
-## INFO:  
-
-You can cancel the sleep from happening by pressing `Ctrl + C`   
-or pause it by clicking inside the terminal pop-up and resume it by pressing any key.
-
-If you have media/audio playing, it will pause it before sleep to prevent audio tasks from thinking something crashed.
-
----
-
 ## Found this useful?<img src="https://media.tenor.com/23NitOvEEkMAAAAj/optical-illusion-rotating-head.gif" width="30"><br>
 
 [![Follow Me <3](https://img.shields.io/badge/Follow%20Me%20%3C3-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/landnthrn)   
@@ -99,6 +102,8 @@ If you have media/audio playing, it will pause it before sleep to prevent audio 
 [![Discord: landn.thrn](https://img.shields.io/badge/Discord-311A82?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/831735011588964392)  
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-311A82?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/landn.thrn/extras)  
 [![PayPal](https://img.shields.io/badge/PayPal-311A82?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=K4PLHFVBH7X8C)
+
+---
 
 
 ---
