@@ -113,7 +113,7 @@ echo Sleep Commands:
 echo   sleepon        - Enable idle sleep
 echo   sleepoff       - Disable idle sleep
 echo   sleepstatus    - Check if enabled/disabled
-echo   sleeptime      - Change idle sleep threshold
+echo   sleeptime      - Change the set idle time
 echo   sleeprestart   - Restart the watcher task
 echo.
 set "EXITCODE=0"
