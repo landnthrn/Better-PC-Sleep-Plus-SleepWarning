@@ -1,0 +1,109 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+POWERSHELL COMMAND LIST (RUN IN ADMINISTRATOR)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CREATE THE IDLE/SLEEP WATCHER TASK:
+
+```
+$taskName    = "ForceSleep_Watcher"
+$scriptPath  = "$env:USERPROFILE\Documents\Scripts\ForceSleep\forcesleep.ps1"
+$powershellExe = Join-Path $env:WINDIR "System32\WindowsPowerShell\v1.0\powershell.exe"
+
+try {
+    Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction Stop
+} catch {
+    # Task didn't exist yet – that's fine
+}
+
+$action    = New-ScheduledTaskAction -Execute $powershellExe `
+    -Argument "-NoProfile -NoLogo -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$scriptPath`""
+$trigger   = New-ScheduledTaskTrigger -AtLogOn
+$principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Limited
+
+$settings  = New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Days 3)
+$settings.DisallowStartIfOnBatteries = $false
+$settings.StopIfGoingOnBatteries     = $false
+$settings.StartWhenAvailable         = $true
+
+Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Principal $principal -Settings $settings
+Start-ScheduledTask   -TaskName $taskName
+```
+
+This preserves the apostrophe in `forcesleep.ps1` and matches the known-good task configuration.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OTHER TASK SCHEDULER COMMANDS 
+
+RESTART TASK 
+schtasks /end /tn "ForceSleep_Watcher" & timeout /t 2 /nobreak >nul & schtasks /run /tn "ForceSleep_Watcher"
+
+DELETE TASK
+schtasks /Delete /TN "ForceSleep_Watcher" /F
+ 
+GET TASK INFO
+schtasks /query /tn "ForceSleep_Watcher" /v /fo list
+
+FORCE CLOSE TASK SCHEDULAR (If it freezes on you)
+taskkill /f /im mmc.exe
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FORCESLEEP_WATCHER TASK INFO:
+(Compare to yours to see if the properties match)
+
+Folder: \
+HostName:                             <COMPUTER NAME>
+TaskName:                             \ForceSleep_Watcher
+Next Run Time:                        N/A
+Status:                               Running
+Logon Mode:                           Interactive only
+Last Run Time:                        <TIMESTAMP>
+Last Result:                          267009
+Author:                               N/A
+Task To Run:                          C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Users\<USERNAME>\Documents\Scripts\ForceSleep\forcesleep.ps1"
+Start In:                             N/A
+Comment:                              N/A
+Scheduled Task State:                 Enabled
+Idle Time:                            Disabled
+Power Management:
+Run As User:                          <USERNAME>
+Delete Task If Not Rescheduled:       Disabled
+Stop Task If Runs X Hours and X Mins: 72:00:00
+Schedule:                             Scheduling data is not available in this format.
+Schedule Type:                        At logon time
+Start Time:                           N/A
+Start Date:                           N/A
+End Date:                             N/A
+Days:                                 N/A
+Months:                               N/A
+Repeat: Every:                        N/A
+Repeat: Until: Time:                  N/A
+Repeat: Until: Duration:              N/A
+Repeat: Stop If Still Running:        N/A
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
