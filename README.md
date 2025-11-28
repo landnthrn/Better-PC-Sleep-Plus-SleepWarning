@@ -28,6 +28,7 @@ Comes with a mini UI in command prompt.
 `sleepoff` — Disable idle sleep  
 `sleepstatus` — Check if the watcher is enabled/disabled  
 `sleeptime` — Change the set idle time to trigger sleep  
+`sleepmonitor` — Change monitor(s) sleep time
 `sleeprestart` — Restart the sleep watcher task
 
 You can cancel sleep by pressing `Ctrl + C` while the warning is visible,  
@@ -116,6 +117,8 @@ You can always turn it back on just like normal
 - Wait a full minute, don't touch your keyboard or mouse, once the sleep warning appears let it play out to confirm the PC sleeps
 
 - When you're done testing, use `sleeptime` again to set your idle time however you'd like
+
+- Run `sleepmonitor` to set your monitor sleep time (Recommended to set 1 minute longer than your idle sleep time)
 
 ---
 
