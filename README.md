@@ -1,5 +1,5 @@
 ![SleepwarningPreview](https://github.com/user-attachments/assets/95d23811-a6f4-4690-9588-bd21821672ea)
-<img width="376" height="273" alt="tacky-borders_tGYr11NU5e" src="https://github.com/user-attachments/assets/f5682582-db94-4440-a919-c5017d52c92f" />
+<img width="427" height="329" alt="seelen-ui_aZoNxi3FKW" src="https://github.com/user-attachments/assets/3a6d21e4-518c-4e2b-88f1-810c7a2ca312" />
 
 
 # BETTER PC SLEEP + SLEEP WARNING
