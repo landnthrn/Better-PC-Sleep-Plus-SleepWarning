@@ -4,7 +4,7 @@
 
 # BETTER PC SLEEP + SLEEP WARNING
 This feature simulates the regular sleeping system and adds more convenience to it.  
-Comes with a mini UI in command prompt.
+Comes with a mini UI in Command Prompt.
 
 ---
 
