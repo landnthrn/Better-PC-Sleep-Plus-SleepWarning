@@ -131,3 +131,5 @@ You can always turn it back on just like normal
 [![Discord: landn.thrn](https://img.shields.io/badge/Discord-311A82?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/831735011588964392)  
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-311A82?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/landn.thrn/extras)  
 [![PayPal](https://img.shields.io/badge/PayPal-311A82?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=K4PLHFVBH7X8C)
+
+![](https://github-view-counter-1-0-0.vercel.app/api?username=landnthrn-Better-PC-Sleep-Plus-SleepWarning&label=false&bgColor=20164C&color=6a5acd&iconColor=6a5acd)
